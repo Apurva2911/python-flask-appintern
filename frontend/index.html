@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Simple Web App</title>
+  <title>SPA Frontend</title>
 </head>
 <body>
-  <h1>Hello from Azure App Service 🚀</h1>
+  <h1>Frontend App 🚀</h1>
   <button onclick="callApi()">Call Backend</button>
   <p id="result"></p>
 
   <script>
-    function callApi() {
-      fetch('/api/hello')
-        .then(res => res.text())
-        .then(data => document.getElementById('result').innerText = data);
+    async function callApi() {
+      const response = await fetch(
+        'https://<BACKEND-APP-NAME>.azurewebsites.net/api/hello'
+      );
+      const data = await response.json();
+      document.getElementById('result').innerText = data.message;
     }
   </script>
 </body>

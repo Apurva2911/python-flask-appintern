@@ -1,15 +1,15 @@
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
-
-const path = require('path');
-
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(cors());
+app.use(express.json());
 
 app.get('/api/hello', (req, res) => {
-  res.send('Hello from backend API 👋');
+  res.json({ message: 'Hello from backend API 👋' });
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Backend running on port ${port}`);
 });
