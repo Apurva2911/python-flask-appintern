@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Web App</title>
+</head>
+<body>
+  <h1>Hello from Azure App Service 🚀</h1>
+  <button onclick="callApi()">Call Backend</button>
+  <p id="result"></p>
+
+  <script>
+    function callApi() {
+      fetch('/api/hello')
+        .then(res => res.text())
+        .then(data => document.getElementById('result').innerText = data);
+    }
+  </script>
+</body>
+</html>
